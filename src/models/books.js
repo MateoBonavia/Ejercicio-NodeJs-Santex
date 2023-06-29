@@ -23,10 +23,6 @@ const Books = sequelize.define("Books", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  library: {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-  },
 });
 
 module.exports = Books;

@@ -1,3 +1,4 @@
 const Library = require("./library");
+const Books = require("./books");
 
-module.exports = { Library };
+module.exports = { Library, Books };
