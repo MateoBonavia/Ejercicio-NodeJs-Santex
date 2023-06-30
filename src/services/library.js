@@ -5,9 +5,22 @@ const createLibrary = async (library) => {
   return newLibrary;
 };
 
+const getLibraries = async () => {
+  const libraries = await libraryProvider.getLibraries();
+  return libraries;
+};
+
 const getLibrary = async (libraryId) => {
   const library = await libraryProvider.getLibrary(libraryId);
   return library;
 };
 
-module.exports = { createLibrary, getLibrary };
+const updateLibrary = async (libraryId, updates) => {
+  const libraryUpdated = await libraryProvider.updateLibrary(
+    libraryId,
+    updates
+  );
+  return libraryUpdated;
+};
+
+module.exports = { createLibrary, getLibrary, getLibraries, updateLibrary };
