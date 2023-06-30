@@ -64,10 +64,27 @@ const postBook = async (req, res) => {
   }
 };
 
+const deleteLibrary = async (req, res) => {
+  try {
+    const library = await libraryServices.getLibrary(req.params.libraryId);
+    if (!library) {
+      res
+        .status(404)
+        .json({ action: "deleteLibrary", error: "No library with that ID" });
+    } else {
+      await libraryServices.deleteLibrary(req.params.libraryId);
+      res.send("The library was successfully deleted");
+    }
+  } catch (err) {
+    res.status(500).json({ action: "deleteLibrary", error: err.message });
+  }
+};
+
 module.exports = {
   createLibrary,
   getLibrary,
   getLibraries,
   updateLibrary,
   postBook,
+  deleteLibrary,
 };

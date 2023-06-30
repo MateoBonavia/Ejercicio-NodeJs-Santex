@@ -12,4 +12,6 @@ router.put("/:libraryId", libraryController.updateLibrary);
 
 router.post("/:libraryId", libraryController.postBook);
 
+router.delete("/:libraryId", libraryController.deleteLibrary);
+
 module.exports = router;

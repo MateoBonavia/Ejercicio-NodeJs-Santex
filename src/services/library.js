@@ -23,4 +23,15 @@ const updateLibrary = async (libraryId, updates) => {
   return libraryUpdated;
 };
 
-module.exports = { createLibrary, getLibrary, getLibraries, updateLibrary };
+const deleteLibrary = async (libraryId) => {
+  await libraryProvider.deleteLibrary(libraryId);
+  return;
+};
+
+module.exports = {
+  createLibrary,
+  getLibrary,
+  getLibraries,
+  updateLibrary,
+  deleteLibrary,
+};

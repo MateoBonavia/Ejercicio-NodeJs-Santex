@@ -55,9 +55,29 @@ const updateLibrary = async (libraryId, updates) => {
     const libraryUpdapted = await getLibrary(libraryId);
     return libraryUpdapted;
   } catch (err) {
-    console.error("Error when fetching Library", err);
+    console.error("Error when updating Library", err);
     throw err;
   }
 };
 
-module.exports = { createLibrary, getLibrary, getLibraries, updateLibrary };
+const deleteLibrary = async (libraryId) => {
+  try {
+    await Library.destroy({
+      where: {
+        id: libraryId,
+      },
+    });
+    return;
+  } catch (err) {
+    console.error("Error when deleting Library", err);
+    throw err;
+  }
+};
+
+module.exports = {
+  createLibrary,
+  getLibrary,
+  getLibraries,
+  updateLibrary,
+  deleteLibrary,
+};

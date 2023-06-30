@@ -12,7 +12,9 @@ const createBook = async (library, book) => {
 
 const getBook = async (bookId) => {
   try {
-    const book = await Books.findByPk(bookId);
+    const book = await Books.findByPk(bookId, {
+      include: { all: true },
+    });
     return book;
   } catch (err) {
     console.error("Error when creating Book", err);
