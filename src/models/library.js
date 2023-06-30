@@ -31,22 +31,14 @@ const Library = sequelize.define(
     deletedAt: "deletedAt",
     paranoid: true,
     timestamps: true,
-    // hooks: {
-    //   afterDestroy: function (instance, options) {
-    //     instance.getLibrary().then((library) => library.destroy());
-    //   },
-    //   afterRestore: function (instance, options) {
-    //     instance
-    //       .getLibrary({ paranoid: false })
-    //       .then((library) => library.restore());
-    //   },
-    // },
   }
 );
 
 Library.hasMany(Books, {
   onDelete: "CASCADE",
 });
-Books.belongsTo(Library);
+Books.belongsTo(Library, {
+  onDelete: "CASCADE",
+});
 
 module.exports = Library;

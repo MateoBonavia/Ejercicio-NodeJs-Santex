@@ -1,6 +1,7 @@
 const { Library } = require("../models");
 
 const createLibrary = async (library) => {
+  console.log(library);
   try {
     const newLibrary = await Library.create(library);
     return newLibrary;
@@ -69,7 +70,7 @@ const deleteLibrary = async (libraryId) => {
     });
     return;
   } catch (err) {
-    console.error("Error when deleting Library", err);
+    console.error("Error when deleting library", err);
     throw err;
   }
 };
